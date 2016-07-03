@@ -60,4 +60,26 @@ public class TripTest {
         //then
         Assert.assertThat(result, is(13));
     }
+
+    @Test
+    public void should_return_distance_22_from_station_A_to_station_E_to_station_B_to_station_C_to_station_D() {
+        //given
+        List<Route> routes = new ArrayList<>();
+        Station stationA = new Station("A");
+        Station stationE = new Station("E");
+        Station stationB = new Station("B");
+        Station stationC = new Station("C");
+        Station stationD = new Station("D");
+        routes.add(new Route(stationA, stationE, 7));
+        routes.add(new Route(stationE, stationB, 3));
+        routes.add(new Route(stationB, stationC, 4));
+        routes.add(new Route(stationC, stationD, 8));
+
+        //when
+        Trip trip = new Trip(routes);
+        Integer result = trip.getDistance();
+
+        //then
+        Assert.assertThat(result, is(22));
+    }
 }
