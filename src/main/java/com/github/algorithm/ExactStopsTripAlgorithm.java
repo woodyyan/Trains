@@ -7,19 +7,17 @@ import com.github.trains.Trip;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MaximumStopsTripAlgorithm extends TripAlgorithm {
-
-    private final Integer limitStops;
+public class ExactStopsTripAlgorithm extends TripAlgorithm {
+    private final Integer exactStops;
     private final List<Route> allRoutes;
 
-    public MaximumStopsTripAlgorithm(Integer maxStops, List<Route> allRoutes) {
-        this.limitStops = maxStops;
+    public ExactStopsTripAlgorithm(Integer exactStops, List<Route> allRoutes) {
+        this.exactStops = exactStops;
         this.allRoutes = allRoutes;
     }
 
     @Override
     public List<Trip> queryTrips(Station startStation, Station endStation) {
-
         return new ArrayList<>();
     }
 }

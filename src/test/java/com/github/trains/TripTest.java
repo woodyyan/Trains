@@ -83,36 +83,4 @@ public class TripTest {
         //then
         Assert.assertThat(result, is(22));
     }
-
-    @Test
-    public void should_return_count_2_when_start_from_station_C_and_pass_less_than_3_stations_to_station_C() {
-        //given
-        Station stationA = new Station("A");
-        Station stationB = new Station("B");
-        Station stationC = new Station("C");
-        Station stationD = new Station("D");
-        Station stationE = new Station("E");
-        List<Route> routes = new ArrayList<>();
-        routes.add(new Route(stationA, stationB, 5));
-        routes.add(new Route(stationB, stationC, 4));
-        routes.add(new Route(stationC, stationD, 8));
-        routes.add(new Route(stationD, stationC, 8));
-        routes.add(new Route(stationD, stationE, 6));
-        routes.add(new Route(stationA, stationD, 5));
-        routes.add(new Route(stationC, stationE, 2));
-        routes.add(new Route(stationE, stationB, 3));
-        routes.add(new Route(stationA, stationE, 7));
-
-        Station endStation = new Station("C");
-        Station startStation = new Station("C");
-
-        //when
-        RailroadService railroadService = new RailroadService();
-        railroadService.setTripAlgorithm(new MaximumStopsTripAlgorithm(3, routes));
-        List<Trip> trips = railroadService.queryTrips(startStation, endStation);
-        Integer result = trips.size();
-
-        //then
-        Assert.assertThat(result, is(2));
-    }
 }
