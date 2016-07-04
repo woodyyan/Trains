@@ -19,7 +19,7 @@ public class RouteTest {
 
         //when
         String result = "";
-        RouteFactory routeFactory = new RouteFactory();
+        RouteFactory routeFactory = new RouteFactory("AB5,BC4,CD8,DC8,DE6,AD5,CE2,EB3,AE7");
         try {
             Route route1 = routeFactory.getRoute(stationA, stationE);
             Route route2 = routeFactory.getRoute(stationE, stationD);

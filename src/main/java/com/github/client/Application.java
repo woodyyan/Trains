@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
-        RouteFactory factory = new RouteFactory();
+        RouteFactory factory = new RouteFactory("AB5,BC4,CD8,DC8,DE6,AD5,CE2,EB3,AE7");
         List<Route> allRoutes = factory.getAllRoutes();
         RailroadService railroadService = new RailroadService(allRoutes);
     }

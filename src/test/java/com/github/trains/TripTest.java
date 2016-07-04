@@ -1,6 +1,5 @@
 package com.github.trains;
 
-import com.github.algorithm.MaximumStopsTripAlgorithm;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -3,35 +3,23 @@ package com.github.trains;
 import com.github.algorithm.ExactStopsTripAlgorithm;
 import com.github.algorithm.MaxDistanceTripAlgorithm;
 import com.github.algorithm.MaximumStopsTripAlgorithm;
+import com.github.factory.RouteFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 
 public class RailroadServiceTest {
-    private List<Route> allRoutes;
+    private RailroadService railroadService;
 
     @Before
     public void setUp() {
-        Station stationA = new Station("A");
-        Station stationB = new Station("B");
-        Station stationC = new Station("C");
-        Station stationD = new Station("D");
-        Station stationE = new Station("E");
-        allRoutes = new ArrayList<>();
-        allRoutes.add(new Route(stationA, stationB, 5));
-        allRoutes.add(new Route(stationB, stationC, 4));
-        allRoutes.add(new Route(stationC, stationD, 8));
-        allRoutes.add(new Route(stationD, stationC, 8));
-        allRoutes.add(new Route(stationD, stationE, 6));
-        allRoutes.add(new Route(stationA, stationD, 5));
-        allRoutes.add(new Route(stationC, stationE, 2));
-        allRoutes.add(new Route(stationE, stationB, 3));
-        allRoutes.add(new Route(stationA, stationE, 7));
+        RouteFactory factory = new RouteFactory("AB5,BC4,CD8,DC8,DE6,AD5,CE2,EB3,AE7");
+        List<Route> routes = factory.getAllRoutes();
+        railroadService = new RailroadService(routes);
     }
 
     @Test
@@ -41,8 +29,7 @@ public class RailroadServiceTest {
         Station endStation = new Station("C");
 
         //when
-        RailroadService railroadService = new RailroadService(allRoutes);
-        railroadService.setTripAlgorithm(new MaximumStopsTripAlgorithm(3, allRoutes));
+        railroadService.setTripAlgorithm(new MaximumStopsTripAlgorithm(3, railroadService.getAllRoutes()));
         List<Trip> trips = railroadService.queryTrips(startStation, endStation);
         Integer result = trips.size();
 
@@ -57,8 +44,7 @@ public class RailroadServiceTest {
         Station endStation = new Station("C");
 
         //when
-        RailroadService railroadService = new RailroadService(allRoutes);
-        railroadService.setTripAlgorithm(new ExactStopsTripAlgorithm(4, allRoutes));
+        railroadService.setTripAlgorithm(new ExactStopsTripAlgorithm(4, railroadService.getAllRoutes()));
         List<Trip> trips = railroadService.queryTrips(startStation, endStation);
         Integer result = trips.size();
 
@@ -73,7 +59,6 @@ public class RailroadServiceTest {
         Station endStation = new Station("C");
 
         //when
-        RailroadService railroadService = new RailroadService(allRoutes);
         Trip trip = railroadService.queryShortestTrip(startStation, endStation);
         Integer result = trip.getDistance();
 
@@ -88,7 +73,6 @@ public class RailroadServiceTest {
         Station endStation = new Station("B");
 
         //when
-        RailroadService railroadService = new RailroadService(allRoutes);
         Trip trip = railroadService.queryShortestTrip(startStation, endStation);
         Integer result = trip.getDistance();
 
@@ -103,8 +87,7 @@ public class RailroadServiceTest {
         Station endStation = new Station("C");
 
         //when
-        RailroadService railroadService = new RailroadService(allRoutes);
-        railroadService.setTripAlgorithm(new MaxDistanceTripAlgorithm(4, allRoutes));
+        railroadService.setTripAlgorithm(new MaxDistanceTripAlgorithm(4, railroadService.getAllRoutes()));
         List<Trip> trips = railroadService.queryTrips(startStation, endStation);
         Integer result = trips.size();
 
