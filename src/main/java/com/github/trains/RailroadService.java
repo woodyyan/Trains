@@ -6,7 +6,12 @@ import java.util.List;
 
 public class RailroadService {
 
+    private final List<Route> allRoutes;
     private TripAlgorithm tripAlgorithm;
+
+    public RailroadService(List<Route> allRoutes) {
+        this.allRoutes = allRoutes;
+    }
 
     public void setTripAlgorithm(TripAlgorithm tripAlgorithm) {
         this.tripAlgorithm = tripAlgorithm;
@@ -14,5 +19,9 @@ public class RailroadService {
 
     public List<Trip> queryTrips(Station startStation, Station endStation) {
         return tripAlgorithm.queryTrips(startStation, endStation);
+    }
+
+    public Trip queryShortestTrip(Station startStation, Station endStation) {
+        return new Trip(allRoutes);
     }
 }

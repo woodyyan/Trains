@@ -36,11 +36,11 @@ public class RailroadServiceTest {
     @Test
     public void should_return_count_2_when_start_from_station_C_and_pass_less_than_3_stations_to_station_C() {
         //given
-        Station endStation = new Station("C");
         Station startStation = new Station("C");
+        Station endStation = new Station("C");
 
         //when
-        RailroadService railroadService = new RailroadService();
+        RailroadService railroadService = new RailroadService(allRoutes);
         railroadService.setTripAlgorithm(new MaximumStopsTripAlgorithm(3, allRoutes));
         List<Trip> trips = railroadService.queryTrips(startStation, endStation);
         Integer result = trips.size();
@@ -52,16 +52,31 @@ public class RailroadServiceTest {
     @Test
     public void should_return_count_3_when_start_from_station_A_and_pass_4_stations_to_station_C() {
         //given
-        Station endStation = new Station("A");
-        Station startStation = new Station("C");
+        Station startStation = new Station("A");
+        Station endStation = new Station("C");
 
         //when
-        RailroadService railroadService = new RailroadService();
+        RailroadService railroadService = new RailroadService(allRoutes);
         railroadService.setTripAlgorithm(new ExactStopsTripAlgorithm(4, allRoutes));
         List<Trip> trips = railroadService.queryTrips(startStation, endStation);
         Integer result = trips.size();
 
         //then
         Assert.assertThat(result, is(3));
+    }
+
+    @Test
+    public void should_return_the_shortest_distance_9_from_station_A_to_station_C() {
+        //given
+        Station startStation = new Station("A");
+        Station endStation = new Station("C");
+
+        //when
+        RailroadService railroadService = new RailroadService(allRoutes);
+        Trip trip = railroadService.queryShortestTrip(startStation, endStation);
+        Integer result = trip.getDistance();
+
+        //then
+        Assert.assertThat(result, is(9));
     }
 }
