@@ -84,4 +84,15 @@ public class TripTest {
         //then
         Assert.assertThat(result, is(22));
     }
+
+    @Test
+    public void should_return_count_2_when_start_from_station_C_and_pass_less_than_30_stations_to_station_C() {
+        //given
+
+        //when
+        Integer result = null;
+
+        //then
+        Assert.assertThat(result, is(2));
+    }
 }
