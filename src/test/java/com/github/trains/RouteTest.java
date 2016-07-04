@@ -1,6 +1,6 @@
 package com.github.trains;
 
-import com.github.trains.Factory.RouteFactory;
+import com.github.factory.RouteFactory;
 import org.junit.Assert;
 import org.junit.Test;
 

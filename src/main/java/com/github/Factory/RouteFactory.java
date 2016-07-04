@@ -1,4 +1,4 @@
-package com.github.trains.Factory;
+package com.github.factory;
 
 import com.github.trains.Route;
 import com.github.trains.Station;
