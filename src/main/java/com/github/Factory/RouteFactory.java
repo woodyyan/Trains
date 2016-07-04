@@ -20,12 +20,12 @@ public class RouteFactory {
         return routes;
     }
 
-    public Route getRoute(Station startStation, Station endStation) throws InvalidParameterException {
+    public Route getRoute(Station fromStation, Station toStation) throws InvalidParameterException {
 
         Route result = null;
         for (Route route : routes) {
-            if (route.getStartStation().getName().equals(startStation.getName())
-                    && route.getEndStation().getName().equals(endStation.getName())) {
+            if (route.getFromStation().getName().equals(fromStation.getName())
+                    && route.getToStation().getName().equals(toStation.getName())) {
                 result = route;
                 break;
             }
@@ -42,12 +42,12 @@ public class RouteFactory {
         String splitChar = ",";
         String[] items = graph.split(splitChar);
         for (String item : items) {
-            String startName = Character.toString(item.charAt(0));
-            String endName = Character.toString(item.charAt(1));
+            String fromName = Character.toString(item.charAt(0));
+            String toName = Character.toString(item.charAt(1));
             Integer distance = Integer.parseInt(Character.toString(item.charAt(2)));
-            Station start = new Station(startName);
-            Station end = new Station(endName);
-            routes.add(new Route(start, end, distance));
+            Station from = new Station(fromName);
+            Station to = new Station(toName);
+            routes.add(new Route(from, to, distance));
         }
     }
 }
