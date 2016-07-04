@@ -1,9 +1,17 @@
 package com.github.trains;
 
-class Route {
+public class Route {
     private final Integer distance;
     private final Station startStation;
     private final Station endStation;
+
+    public Station getEndStation() {
+        return endStation;
+    }
+
+    public Station getStartStation() {
+        return startStation;
+    }
 
     Integer getDistance() {
         return distance;
