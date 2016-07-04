@@ -21,9 +21,9 @@ public class RailroadService {
         this.tripAlgorithm = tripAlgorithm;
     }
 
-    public List<Trip> queryTrips(Station fromStation, Station toStation) {
+    public List<Trip> queryTrips(Station from, Station to) {
         if (tripAlgorithm != null) {
-            return tripAlgorithm.queryTrips(fromStation, toStation);
+            return tripAlgorithm.queryTrips(from, to);
         }
 
         return new ArrayList<>();
