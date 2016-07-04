@@ -1,6 +1,6 @@
 package com.github.trains;
 
-public class Station {
+public final class Station {
     private final String name;
 
     public String getName() {
