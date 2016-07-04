@@ -20,7 +20,7 @@ public class RailroadService {
         this.tripAlgorithm = tripAlgorithm;
     }
 
-    public List<Trip> queryTrips(Station startStation, Station endStation) {
-        return tripAlgorithm.queryTrips(startStation, endStation);
+    public List<Trip> queryTrips(Station fromStation, Station toStation) {
+        return tripAlgorithm.queryTrips(fromStation, toStation);
     }
 }

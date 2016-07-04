@@ -18,8 +18,18 @@ public class MaximumStopsTripAlgorithm extends TripAlgorithm {
     }
 
     @Override
-    public List<Trip> queryTrips(Station startStation, Station endStation) {
+    public List<Trip> queryTrips(Station fromStation, Station toStation) {
 
-        return new ArrayList<>();
+        List<Trip> trips = new ArrayList<>();
+        for (Route route : allRoutes) {
+            if (route.getFromStation().getName().equals(fromStation.getName())) {
+
+            }
+            if (route.getToStation().getName().equals(toStation.getName())) {
+
+            }
+        }
+
+        return trips;
     }
 }

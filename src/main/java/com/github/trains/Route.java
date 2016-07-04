@@ -2,24 +2,24 @@ package com.github.trains;
 
 public class Route {
     private final Integer distance;
-    private final Station startStation;
-    private final Station endStation;
+    private final Station fromStation;
+    private final Station toStation;
 
-    public Station getEndStation() {
-        return endStation;
+    public Station getToStation() {
+        return toStation;
     }
 
-    public Station getStartStation() {
-        return startStation;
+    public Station getFromStation() {
+        return fromStation;
     }
 
     Integer getDistance() {
         return distance;
     }
 
-    public Route(Station startStation, Station endStation, Integer distance) {
-        this.startStation = startStation;
-        this.endStation = endStation;
+    public Route(Station fromStation, Station toStation, Integer distance) {
+        this.fromStation = fromStation;
+        this.toStation = toStation;
         this.distance = distance;
     }
 }

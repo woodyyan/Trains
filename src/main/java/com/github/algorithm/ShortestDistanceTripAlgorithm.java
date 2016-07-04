@@ -13,7 +13,7 @@ public class ShortestDistanceTripAlgorithm extends TripAlgorithm {
     }
 
     @Override
-    public List<Trip> queryTrips(Station startStation, Station endStation) {
+    public List<Trip> queryTrips(Station fromStation, Station toStation) {
         return new ArrayList<>();
     }
 }

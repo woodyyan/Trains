@@ -6,5 +6,5 @@ import com.github.trains.Trip;
 import java.util.List;
 
 public abstract class TripAlgorithm {
-    public abstract List<Trip> queryTrips(Station startStation, Station endStation);
+    public abstract List<Trip> queryTrips(Station fromStation, Station toStation);
 }
