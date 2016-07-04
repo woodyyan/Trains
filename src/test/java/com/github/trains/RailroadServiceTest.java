@@ -1,6 +1,7 @@
 package com.github.trains;
 
 import com.github.algorithm.ExactStopsTripAlgorithm;
+import com.github.algorithm.MaxDistanceTripAlgorithm;
 import com.github.algorithm.MaximumStopsTripAlgorithm;
 import org.junit.Assert;
 import org.junit.Before;
@@ -78,5 +79,36 @@ public class RailroadServiceTest {
 
         //then
         Assert.assertThat(result, is(9));
+    }
+
+    @Test
+    public void should_return_the_shortest_distance_9_from_station_B_to_station_B() {
+        //given
+        Station startStation = new Station("B");
+        Station endStation = new Station("B");
+
+        //when
+        RailroadService railroadService = new RailroadService(allRoutes);
+        Trip trip = railroadService.queryShortestTrip(startStation, endStation);
+        Integer result = trip.getDistance();
+
+        //then
+        Assert.assertThat(result, is(9));
+    }
+
+    @Test
+    public void should_return_count_7_from_station_C_and_max_distance_is_less_than_30_to_station_C() {
+        //given
+        Station startStation = new Station("C");
+        Station endStation = new Station("C");
+
+        //when
+        RailroadService railroadService = new RailroadService(allRoutes);
+        railroadService.setTripAlgorithm(new MaxDistanceTripAlgorithm(4, allRoutes));
+        List<Trip> trips = railroadService.queryTrips(startStation, endStation);
+        Integer result = trips.size();
+
+        //then
+        Assert.assertThat(result, is(7));
     }
 }

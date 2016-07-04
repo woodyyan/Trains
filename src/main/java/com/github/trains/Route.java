@@ -17,7 +17,7 @@ public class Route {
         return distance;
     }
 
-    Route(Station startStation, Station endStation, Integer distance) {
+    public Route(Station startStation, Station endStation, Integer distance) {
         this.startStation = startStation;
         this.endStation = endStation;
         this.distance = distance;

@@ -7,7 +7,7 @@ public final class Station {
         return name;
     }
 
-    Station(String name) {
+    public Station(String name) {
         this.name = name;
     }
 }
