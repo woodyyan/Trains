@@ -7,12 +7,12 @@ import com.github.trains.Trip;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExactStopsTripAlgorithm extends TripAlgorithm {
-    private final Integer exactStops;
+public class ExactlyStopsTripAlgorithm extends TripAlgorithm {
+    private final Integer exactlyStops;
     private final List<Route> allRoutes;
 
-    public ExactStopsTripAlgorithm(Integer exactStops, List<Route> allRoutes) {
-        this.exactStops = exactStops;
+    public ExactlyStopsTripAlgorithm(Integer exactlyStops, List<Route> allRoutes) {
+        this.exactlyStops = exactlyStops;
         this.allRoutes = allRoutes;
     }
 

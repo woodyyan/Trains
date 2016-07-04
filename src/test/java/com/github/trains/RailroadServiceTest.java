@@ -1,6 +1,6 @@
 package com.github.trains;
 
-import com.github.algorithm.ExactStopsTripAlgorithm;
+import com.github.algorithm.ExactlyStopsTripAlgorithm;
 import com.github.algorithm.MaxDistanceTripAlgorithm;
 import com.github.algorithm.MaximumStopsTripAlgorithm;
 import com.github.algorithm.ShortestDistanceTripAlgorithm;
@@ -45,7 +45,7 @@ public class RailroadServiceTest {
         Station endStation = new Station("C");
 
         //when
-        railroadService.setTripAlgorithm(new ExactStopsTripAlgorithm(4, railroadService.getAllRoutes()));
+        railroadService.setTripAlgorithm(new ExactlyStopsTripAlgorithm(4, railroadService.getAllRoutes()));
         List<Trip> trips = railroadService.queryTrips(startStation, endStation);
         Integer result = trips.size();
 
