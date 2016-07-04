@@ -20,12 +20,12 @@ public class RouteFactory {
         return routes;
     }
 
-    public Route getRoute(Station fromStation, Station toStation) throws InvalidParameterException {
+    public Route getRoute(Station from, Station to) throws InvalidParameterException {
 
         Route result = null;
         for (Route route : routes) {
-            if (route.getFromStation().getName().equals(fromStation.getName())
-                    && route.getToStation().getName().equals(toStation.getName())) {
+            if (route.getFromStation().getName().equals(from.getName())
+                    && route.getToStation().getName().equals(to.getName())) {
                 result = route;
                 break;
             }
