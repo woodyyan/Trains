@@ -23,8 +23,4 @@ public class RailroadService {
     public List<Trip> queryTrips(Station startStation, Station endStation) {
         return tripAlgorithm.queryTrips(startStation, endStation);
     }
-
-    public Trip queryShortestTrip(Station startStation, Station endStation) {
-        return new Trip(allRoutes);
-    }
 }

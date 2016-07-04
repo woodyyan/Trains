@@ -3,6 +3,7 @@ package com.github.trains;
 import com.github.algorithm.ExactStopsTripAlgorithm;
 import com.github.algorithm.MaxDistanceTripAlgorithm;
 import com.github.algorithm.MaximumStopsTripAlgorithm;
+import com.github.algorithm.ShortestDistanceTripAlgorithm;
 import com.github.factory.RouteFactory;
 import org.junit.Assert;
 import org.junit.Before;
@@ -59,8 +60,9 @@ public class RailroadServiceTest {
         Station endStation = new Station("C");
 
         //when
-        Trip trip = railroadService.queryShortestTrip(startStation, endStation);
-        Integer result = trip.getDistance();
+        railroadService.setTripAlgorithm(new ShortestDistanceTripAlgorithm(railroadService.getAllRoutes()));
+        List<Trip> trips = railroadService.queryTrips(startStation, endStation);
+        Integer result = trips.get(0).getDistance();
 
         //then
         Assert.assertThat(result, is(9));
@@ -73,8 +75,9 @@ public class RailroadServiceTest {
         Station endStation = new Station("B");
 
         //when
-        Trip trip = railroadService.queryShortestTrip(startStation, endStation);
-        Integer result = trip.getDistance();
+        railroadService.setTripAlgorithm(new ShortestDistanceTripAlgorithm(railroadService.getAllRoutes()));
+        List<Trip> trips = railroadService.queryTrips(startStation, endStation);
+        Integer result = trips.get(0).getDistance();
 
         //then
         Assert.assertThat(result, is(9));
