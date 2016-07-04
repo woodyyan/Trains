@@ -22,7 +22,10 @@ public class Application {
         Station to = new Station("C");
         List<Station> stops = new ArrayList<>();
         stops.add(new Station("B"));
-        Integer distance = railroadService.departure(from).passingBy(stops).arrival(to).queryDistance();
+        Integer distance = railroadService.departure(from)
+                .passingBy(stops)
+                .arrival(to)
+                .queryDistance();
         System.out.println(distance);
     }
 }
